@@ -1231,12 +1231,12 @@ namespace Ionic.Zlib
                 lock(_outputLock)
                 {
                     int tid = Thread.CurrentThread.GetHashCode();
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !UNITY_3_5
                     Console.ForegroundColor = (ConsoleColor) (tid % 8 + 8);
 #endif
                     Console.Write("{0:000} PDOS ", tid);
                     Console.WriteLine(format, varParams);
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !UNITY_3_5
                     Console.ResetColor();
 #endif
                 }
